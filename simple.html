@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple</title>
+    <meta charset='UTF-8'>
+    <link rel='stylesheet' type='text/css' href='style.css'>
+    <script type='text/javascript' src='simple.js'></script>
+</head>
+<body>
+<h1>Simple</h1>
+<h3>getJSON:</h3>
+<button class='json-ok left' promise='json' url='ok.json'>ok</button>
+<button class='json-wrong' promise='json' url='wrong.json'>wrong</button>
+<button class='json-missing' promise='json' url='missing.json'>missing</button>
+<script type='text/javascript'>
+    register('.json-ok')
+    register('.json-wrong')
+    register('.json-missing')
+</script>
+<h3>getImage:</h3>
+<button class='image-ok left' promise='image' url='twitter.png'>ok</button>
+<button class='image-wrong' promise='image' url='wrong.json'>wrong</button>
+<button class='image-missing' promise='image' url='missing.png'>missing</button>
+<script type='text/javascript'>
+    register('.image-ok')
+    register('.image-wrong')
+    register('.image-missing')
+</script>
+</body>
+</html>

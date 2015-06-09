@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Batch</title>
+    <meta charset='UTF-8'>
+    <link rel='stylesheet' type='text/css' href='style.css'>
+    <!-- IE10 / IE11 https://github.com/ForbesLindesay/promisejs.org -->
+    <!-- IE9 require JSON polyfill + xhr modifications to supports 'ok.json' -->
+    <script type="text/javascript" src='promise-6.1.0.js'></script>
+    <script type="text/javascript" src='batch.js'></script>
+</head>
+<body>
+<h1>Batch</h1>
+<button class='ok left'>load ok</button>
+<script type='text/javascript'>
+    function load() {
+        var loader = new Batch(['email.png', 'facebook.png', 'twitter.png', 'ok.json'])
+
+        loader.load()
+        .then(function(result) {
+            console.log('result:', result)
+
+            var png = loader.get('twitter.png')
+            document.body.appendChild(png)
+            var json = loader.get('ok.json')
+            var el = document.createTextNode(json.heading)
+            document.body.appendChild(el)
+        })
+        .catch(function(error) {
+            console.error('error:', error)
+        })
+    }
+
+    document.querySelector('.ok').addEventListener('click', load)
+</script>
+</body>
+</html>
